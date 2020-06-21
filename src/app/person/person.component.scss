@@ -1,0 +1,27 @@
+.person-card{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  border-bottom: 1px red solid;
+}
+
+.person-photo{
+  width: 50px;
+}
+
+.person-firstName{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+}
+
+.person-lastName{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+button{
+  width: 100px;
+}
