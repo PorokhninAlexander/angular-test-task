@@ -5,7 +5,10 @@
   border-bottom: 1px red solid;
 }
 
-.person-photo{
+.person-number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
 }
 
@@ -22,6 +25,17 @@
   align-items: center;
 }
 
-button{
+.btns{
+  display: flex;
+  flex-direction: row;
+  min-width:100px;
   width: 100px;
+  position: absolute;
+  margin-left: calc(100% - 116px);
+  height: 50px;
+
+  &>*{
+    width: 100%;
+  }
 }
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-window-edit',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./window-edit.component.scss']
 })
 export class WindowEditComponent implements OnInit {
+  @Output() isClose = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  closeWindow() {
+    this.isClose.emit(false)
+  }
 }

@@ -1,8 +1,23 @@
 <div>
-  <button>Добавить сотрудника</button>
+  <button (click)="onShowAddPerson()">Добавить сотрудника</button>
   <div class="person-container">
-    <app-person></app-person>
-    <app-window-add *ngIf="false"></app-window-add>
-    <app-window-edit *ngIf="true"></app-window-edit>
+    <div class="person-head">
+      <div class="person-number">№</div>
+      <div class="person-firstName">Имя</div>
+      <div class="person-lastName" >Фамилия</div>
+    </div>
+
+    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
+    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
+    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
+
+    <app-window-add
+      *ngIf="isAddWindow"
+      (isClose)="closeWindows()"
+    ></app-window-add>
+    <app-window-edit
+      (isClose)="closeWindows()"
+      *ngIf="isEditWindow"
+    ></app-window-edit>
   </div>
 </div>
