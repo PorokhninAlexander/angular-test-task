@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PersonComponent } from './person/person.component';
+import { WindowAddComponent } from './modals/window-add/window-add.component';
+import { WindowEditComponent } from './modals/window-edit/window-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonComponent
+    PersonComponent,
+    WindowAddComponent,
+    WindowEditComponent
   ],
   imports: [
     BrowserModule
