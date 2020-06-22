@@ -10,7 +10,7 @@
     <app-person *ngFor="let person of personsArr"
                 [person]="person"
                 (editPerson)="onShowEditPerson($event)"
-                (deleteId)="onDeletePerson($event)"
+                (deletePerson)="onShowDeletePerson($event)"
     ></app-person>
 
 
@@ -18,12 +18,25 @@
       *ngIf="isAddWindow"
       (isClose)="closeWindows()"
       (newPerson)="onAddPerson($event)"
-    ></app-window-add>
+    >
+    </app-window-add>
     <app-window-edit
       (isClose)="closeWindows()"
       *ngIf="isEditWindow"
       [person]='editPerson'
       (editPerson)="onEditPerson($event)"
-    ></app-window-edit>
+    >
+    </app-window-edit>
+    <app-window-delete
+      (isClose)="closeWindows()"
+      *ngIf="isDeleteWindow"
+      [person]="deletePerson"
+      (deletedPersonId)="onDeletePerson($event)"
+    >
+    </app-window-delete>
+    <app-notification
+      [notificationText]="text"
+      *ngIf="isNotification"
+    ></app-notification>
   </div>
 </div>

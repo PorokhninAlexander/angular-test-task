@@ -19,7 +19,8 @@ export class WindowEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.firstName = this.person.firstName;
-    this.lastName = this.person.lastName;  }
+    this.lastName = this.person.lastName;
+  }
 
   closeWindow(): void {
     this.isClose.emit(false);

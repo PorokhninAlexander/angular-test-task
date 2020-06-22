@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.4);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -64,4 +64,11 @@
 .edit{
   display: flex;
   justify-content: flex-end;
+}
+
+.head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }

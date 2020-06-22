@@ -9,7 +9,7 @@ import {Person} from '../db-service.service';
 export class PersonComponent implements OnInit {
   @Input() person: Person;
   @Output() editPerson = new EventEmitter();
-  @Output() deleteId = new EventEmitter();
+  @Output() deletePerson = new EventEmitter();
 
   photo = 'https://image.flaticon.com/icons/svg/848/848043.svg';
   showBtns = false;
@@ -32,7 +32,7 @@ export class PersonComponent implements OnInit {
     this.editPerson.emit(this.person);
   }
 
-  getIdPerson(): void {
-    this.deleteId.emit(this.person.id);
+  getDeletePerson(): void {
+    this.deletePerson.emit(this.person);
   }
 }

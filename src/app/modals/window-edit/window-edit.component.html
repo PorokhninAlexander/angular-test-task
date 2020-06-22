@@ -1,10 +1,14 @@
 <div class="background">
   <div class="window">
+    <div class="head">Редактирование сотрудника</div>
     <button class="back-btn" (click)="closeWindow()">назад к списку</button>
     <div class="window-container">
       <input  type="text" placeholder="Введите имя"
-              [(ngModel)]="firstName">
-      <input  type="text" placeholder="Введите фамилию" [(ngModel)]="lastName">
+              [(ngModel)]="firstName"
+      >
+      <input  type="text" placeholder="Введите фамилию"
+              [(ngModel)]="lastName"
+      >
     </div>
     <div class="edit">
       <button class="edit-btn" (click)="onEditPerson()">Сохранить</button>

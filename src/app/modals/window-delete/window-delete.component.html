@@ -1,1 +1,13 @@
-<p>window-delete works!</p>
+<div class="background">
+  <div class="window">
+    <div class="head">Удаление сотрудника</div>
+    <button class="back-btn" (click)="onClose()">назад к списку</button>
+    <div class="window-container">
+      <div>{{'Удалить сотрудника ' + firstName + ' ' + lastName + '?'}}</div>
+    </div>
+    <div class="delete">
+      <button class="delete-btn" (click)="onDeletePerson()">Удалить</button>
+    </div>
+  </div>
+</div>
+

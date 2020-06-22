@@ -21,8 +21,8 @@ export class DbServiceService {
       return this.http.get<Person[]>(this.url);
    }
 
-   editPerson(person: Person): Observable<Person[]> {
-     return this.http.put<Person[]>(
+   editPerson(person: Person): Observable<Person> {
+     return this.http.put<Person>(
        this.url + '/' + person.id,
        {firstName : person.firstName, lastName: person.lastName}
        );
