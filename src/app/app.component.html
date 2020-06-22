@@ -2,22 +2,28 @@
   <button (click)="onShowAddPerson()">Добавить сотрудника</button>
   <div class="person-container">
     <div class="person-head">
-      <div class="person-number">№</div>
+      <div class="person-img">Фото</div>
       <div class="person-firstName">Имя</div>
       <div class="person-lastName" >Фамилия</div>
     </div>
 
-    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
-    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
-    <app-person (editPerson)="onShowEditPerson($event)"></app-person>
+    <app-person *ngFor="let person of personsArr"
+                [person]="person"
+                (editPerson)="onShowEditPerson($event)"
+                (deleteId)="onDeletePerson($event)"
+    ></app-person>
+
 
     <app-window-add
       *ngIf="isAddWindow"
       (isClose)="closeWindows()"
+      (newPerson)="onAddPerson($event)"
     ></app-window-add>
     <app-window-edit
       (isClose)="closeWindows()"
       *ngIf="isEditWindow"
+      [person]='editPerson'
+      (editPerson)="onEditPerson($event)"
     ></app-window-edit>
   </div>
 </div>

@@ -7,6 +7,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class WindowAddComponent implements OnInit {
   @Output() isClose = new EventEmitter();
+  @Output() newPerson = new EventEmitter();
+
+  firstName = '';
+  lastName = '';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -16,4 +21,10 @@ export class WindowAddComponent implements OnInit {
     this.isClose.emit(false);
   }
 
+  onAddPerson(){
+    this.newPerson.emit({
+      firstName: this.firstName,
+      lastName: this.lastName
+    });
+  }
 }

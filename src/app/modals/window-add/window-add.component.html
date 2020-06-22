@@ -2,11 +2,11 @@
   <div class="window">
     <button class="back-btn" (click)="onClose()">назад к списку</button>
     <div class="window-container">
-      <input type="text" placeholder="Введите имя">
-      <input type="text" placeholder="Введите фамилию">
+      <input type="text" placeholder="Введите имя" [(ngModel)]="firstName">
+      <input type="text" placeholder="Введите фамилию" [(ngModel)]="lastName">
     </div>
     <div class="add">
-      <button class="add-btn">Добавить</button>
+      <button class="add-btn" (click)="onAddPerson()">Добавить</button>
     </div>
   </div>
 </div>

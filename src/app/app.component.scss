@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: row;
   height: 50px;
-  border-bottom: 1px red solid;
+  border-bottom: 1px rgba(0,0,0,.4) solid;
+  background: lightgray;
 }
 
-.person-number{
+.person-img{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  min-width: 60px;
+  width: 60px;
 }
 
 .person-firstName{

@@ -2,12 +2,11 @@
      (mouseenter)="onShowBtn()"
      (mouseleave)="onHideBtn()"
 >
-  <div class="person-number">1</div>
-  <div class="person-firstName" >Sasha</div>
-  <div class="person-lastName">Nesasha</div>
+  <img src="{{photo}}" alt="Фото" class="person-img">  <div class="person-firstName" >{{person.firstName}}</div>
+  <div class="person-lastName">{{person.lastName}}</div>
   <div class="btns" *ngIf="showBtns">
-    <button class="edit-person" (click)="getEditPerson()">E</button>
-    <button class="remove-person">R</button>
+    <button class="edit-person" (click)="getEditPerson()"></button>
+    <button class="remove-person" (click)="getIdPerson()"></button>
   </div>
 
 </div>
