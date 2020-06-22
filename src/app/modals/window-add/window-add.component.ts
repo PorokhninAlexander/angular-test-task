@@ -17,11 +17,14 @@ export class WindowAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClose(){
+  onClose(): void {
     this.isClose.emit(false);
   }
 
-  onAddPerson(){
+  onAddPerson(): void {
+    if (!this.firstName.trim()) { return; }
+    if (!this.lastName.trim()) { return; }
+
     this.newPerson.emit({
       firstName: this.firstName,
       lastName: this.lastName

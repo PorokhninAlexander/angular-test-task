@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PersonComponent } from './person/person.component';
 import { WindowAddComponent } from './modals/window-add/window-add.component';
 import { WindowEditComponent } from './modals/window-edit/window-edit.component';
+import { WindowDeleteComponent } from './modals/window-delete/window-delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonComponent,
     WindowAddComponent,
-    WindowEditComponent
+    WindowEditComponent,
+    WindowDeleteComponent
   ],
   imports: [
     BrowserModule,

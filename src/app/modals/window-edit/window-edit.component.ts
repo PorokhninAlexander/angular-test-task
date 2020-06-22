@@ -21,11 +21,14 @@ export class WindowEditComponent implements OnInit {
     this.firstName = this.person.firstName;
     this.lastName = this.person.lastName;  }
 
-  closeWindow() {
-    this.isClose.emit(false)
+  closeWindow(): void {
+    this.isClose.emit(false);
   }
 
-  onEditPerson(){
+  onEditPerson(): void {
+    if (!this.firstName.trim()) { return; }
+    if (!this.lastName.trim()) { return; }
+
     this.person.firstName = this.firstName;
     this.person.lastName = this.lastName;
     this.editPerson.emit(this.person);

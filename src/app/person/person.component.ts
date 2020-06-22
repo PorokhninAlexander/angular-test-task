@@ -11,28 +11,28 @@ export class PersonComponent implements OnInit {
   @Output() editPerson = new EventEmitter();
   @Output() deleteId = new EventEmitter();
 
-  photo = 'https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg';
-
+  photo = 'https://image.flaticon.com/icons/svg/848/848043.svg';
   showBtns = false;
+
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  onShowBtn() {
+  onShowBtn(): void {
     this.showBtns = true;
   }
 
-  onHideBtn(){
+  onHideBtn(): void {
     this.showBtns = false;
   }
 
-  getEditPerson(){
+  getEditPerson(): void {
     this.editPerson.emit(this.person);
   }
 
-  getIdPerson(){
-    this.deleteId.emit(this.person.id)
+  getIdPerson(): void {
+    this.deleteId.emit(this.person.id);
   }
 }

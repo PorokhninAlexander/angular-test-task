@@ -11,11 +11,6 @@
       "lastName": "Tate"
     },
     {
-      "firstName": "Alexander",
-      "lastName": "Porokhnin",
-      "id": 4
-    },
-    {
       "id": 6,
       "firstName": "Jimmie",
       "lastName": "Gay"
@@ -31,9 +26,14 @@
       "id": 8
     },
     {
-      "firstName": "Иван",
-      "lastName": "Иванов",
-      "id": 9
+      "firstName": "Заяц",
+      "lastName": "Александрович",
+      "id": 10
+    },
+    {
+      "firstName": "ddd",
+      "lastName": "fff",
+      "id": 11
     }
   ]
 }

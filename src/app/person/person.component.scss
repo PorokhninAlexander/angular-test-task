@@ -3,6 +3,10 @@
   flex-direction: row;
   height: 50px;
   border-bottom: 1px rgba(0,0,0,.4) solid;
+
+  &:hover{
+    background: rgba(225,225,225,0.4);
+  }
 }
 
 .person-img{

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 export interface Person {
-  id?: number,
-  firstName: string,
-  lastName: string
+  id?: number;
+  firstName: string;
+  lastName: string;
 }
 
 @Injectable({
@@ -16,22 +17,22 @@ export class DbServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getPersons(){
+  getPersons(): Observable<Person[]> {
       return this.http.get<Person[]>(this.url);
    }
 
-   editPerson(person){
+   editPerson(person: Person): Observable<Person[]> {
      return this.http.put<Person[]>(
        this.url + '/' + person.id,
        {firstName : person.firstName, lastName: person.lastName}
        );
    }
 
-   addPerson(person){
+   addPerson(person: Person): Observable<Person> {
       return this.http.post<Person>(this.url, person);
    }
 
-   deletePerson(id){
-    return this.http.delete(this.url + '/' + id);
+   deletePerson(id: number): Observable<Person> {
+    return this.http.delete<Person>(this.url + '/' + id);
    }
 }

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DbServiceService, Person} from './db-service.service';
-import {subscribeOn} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -31,27 +30,27 @@ export class AppComponent implements OnInit{
 
   onShowAddPerson(){
     this.isAddWindow = true;
+
   }
 
-  closeWindows(){
+  closeWindows(): void {
     this.isEditWindow = false;
     this.isAddWindow = false;
   }
 
-  onEditPerson(person){
-    this.dbServices.editPerson(person).subscribe(response => console.log(response));
+  onEditPerson(person: Person): void {
+    this.dbServices.editPerson(person).subscribe();
     this.closeWindows();
   }
 
-  onAddPerson(newPerson) {
-    console.log(newPerson);
+  onAddPerson(newPerson: Person): void {
     this.dbServices.addPerson(newPerson).subscribe(response => this.personsArr.push(response));
     this.closeWindows();
   }
 
-  onDeletePerson(id) {
+  onDeletePerson(id: number): void {
     this.dbServices.deletePerson(id)
-      .subscribe(response => this.personsArr = this.personsArr.filter(person => person.id != id));
+      .subscribe(response => this.personsArr = this.personsArr.filter(person => person.id !== id));
   }
 }
 
