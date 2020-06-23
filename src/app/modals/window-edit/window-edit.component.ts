@@ -8,11 +8,12 @@ import {Person} from '../../db-service.service';
 })
 export class WindowEditComponent implements OnInit {
   @Input() person: Person;
-  @Output() isClose = new EventEmitter();
-  @Output() editPerson = new EventEmitter();
+  @Output() isClose = new EventEmitter<boolean>();
+  @Output() editPerson = new EventEmitter<Person>();
+  @Output() notificationText = new EventEmitter<string>();
 
-  firstName = '';
-  lastName = '';
+  firstName: string;
+  lastName: string;
 
 
   constructor() { }
@@ -27,11 +28,21 @@ export class WindowEditComponent implements OnInit {
   }
 
   onEditPerson(): void {
-    if (!this.firstName.trim()) { return; }
-    if (!this.lastName.trim()) { return; }
+    if (!this.firstName.trim()) {
+      this.notificationText.emit('Введите имя');
+      return;
+    }
+    if (!this.lastName.trim()) {
+      this.notificationText.emit('Введите фамилию');
+      return;
+    }
+    if (this.person.lastName === this.lastName && this.person.firstName === this.firstName) {
+      this.notificationText.emit('Измненений нет');
+      return;
+    }
 
-    this.person.firstName = this.firstName;
-    this.person.lastName = this.lastName;
+    this.person.firstName = this.firstName.trim();
+    this.person.lastName = this.lastName.trim();
     this.editPerson.emit(this.person);
   }
 }

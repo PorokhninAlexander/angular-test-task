@@ -8,11 +8,11 @@ import {Person} from '../../db-service.service';
 })
 export class WindowDeleteComponent implements OnInit {
   @Input() person: Person;
-  @Output() isClose = new EventEmitter();
-  @Output() deletedPersonId = new EventEmitter();
+  @Output() isClose = new EventEmitter<boolean>();
+  @Output() deletedPersonId = new EventEmitter<number>();
 
-  firstName = '';
-  lastName = '';
+  firstName: string;
+  lastName: string;
 
   constructor() { }
 

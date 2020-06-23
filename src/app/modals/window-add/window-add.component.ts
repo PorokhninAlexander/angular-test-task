@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Person} from '../../db-service.service';
 
 @Component({
   selector: 'app-window-add',
@@ -6,15 +7,18 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./window-add.component.scss']
 })
 export class WindowAddComponent implements OnInit {
-  @Output() isClose = new EventEmitter();
-  @Output() newPerson = new EventEmitter();
+  @Output() isClose = new EventEmitter<boolean>();
+  @Output() newPerson = new EventEmitter<Person>();
+  @Output() notificationText = new EventEmitter<string>();
 
-  firstName = '';
-  lastName = '';
+  firstName: string;
+  lastName: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.firstName = '';
+    this.lastName = '';
   }
 
   onClose(): void {
@@ -22,12 +26,18 @@ export class WindowAddComponent implements OnInit {
   }
 
   onAddPerson(): void {
-    if (!this.firstName.trim()) { return; }
-    if (!this.lastName.trim()) { return; }
+    if (!this.firstName.trim()) {
+      this.notificationText.emit('Введите имя');
+      return;
+    }
+    if (!this.lastName.trim()) {
+      this.notificationText.emit('Введите фамилию');
+      return;
+    }
 
     this.newPerson.emit({
-      firstName: this.firstName,
-      lastName: this.lastName
+      firstName: this.firstName.trim(),
+      lastName: this.lastName.trim()
     });
   }
 }

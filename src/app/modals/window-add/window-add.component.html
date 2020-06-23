@@ -3,8 +3,8 @@
     <div class="head">Добавление сотрудника</div>
     <button class="back-btn" (click)="onClose()">назад к списку</button>
     <div class="window-container">
-      <input type="text" placeholder="Введите имя" [(ngModel)]="firstName">
-      <input type="text" placeholder="Введите фамилию" [(ngModel)]="lastName">
+      <input type="text" placeholder="Введите имя" [(ngModel)]="firstName" value=''>
+      <input type="text" placeholder="Введите фамилию" [(ngModel)]="lastName" value="">
     </div>
     <div class="add">
       <button class="add-btn" (click)="onAddPerson()">Добавить</button>

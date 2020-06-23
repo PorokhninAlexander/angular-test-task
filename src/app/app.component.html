@@ -13,11 +13,13 @@
                 (deletePerson)="onShowDeletePerson($event)"
     ></app-person>
 
+    <div class="empty-wall" *ngIf="!(personsArr.length)">List is empty...</div>
 
     <app-window-add
       *ngIf="isAddWindow"
       (isClose)="closeWindows()"
       (newPerson)="onAddPerson($event)"
+      (notificationText)="onNotify($event)"
     >
     </app-window-add>
     <app-window-edit
@@ -25,6 +27,7 @@
       *ngIf="isEditWindow"
       [person]='editPerson'
       (editPerson)="onEditPerson($event)"
+      (notificationText)="onNotify($event)"
     >
     </app-window-edit>
     <app-window-delete

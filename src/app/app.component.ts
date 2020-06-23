@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DbServiceService, Person} from './db-service.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,19 +16,19 @@ export class AppComponent implements OnInit{
   isDeleteWindow = false;
   isNotification = false;
 
-  personsArr: Person[];
+  personsArr: Person[] = [];
   editPerson: Person;
   deletePerson: Person;
+
   text: string;
+  notificationDelay = 3000;
 
   constructor(private dbServices: DbServiceService) {
   }
 
   ngOnInit(): void {
-    this.dbServices.getPersons().subscribe(response => this.personsArr = response);
-    this.text = 'gkuyvvkc ky guk';
+    this.getPersons();
   }
-
 
   onShowEditPerson(person: Person){
     this.isEditWindow = true;
@@ -49,29 +50,43 @@ export class AppComponent implements OnInit{
     this.isDeleteWindow = false;
   }
 
+  getPersons(): void{
+    this.dbServices.getPersons()
+      .subscribe(response => { this.personsArr = response; },
+        error => { this.onNotify(this.dbServices.errorHandler(error)); });
+  }
+
   onEditPerson(person: Person): void {
-    this.dbServices.editPerson(person).subscribe();
+    this.dbServices.editPerson(person)
+      .subscribe(response => {},
+        error => { this.onNotify(this.dbServices.errorHandler(error)); }
+        );
     this.closeWindows();
     this.onNotify('Изменения сохранены');
   }
 
   onAddPerson(newPerson: Person): void {
-    this.dbServices.addPerson(newPerson).subscribe(response => this.personsArr.push(response));
+    this.dbServices.addPerson(newPerson)
+      .subscribe(response => { this.personsArr.push(response); },
+          error => { this.onNotify(this.dbServices.errorHandler(error)); }
+          );
     this.closeWindows();
     this.onNotify('Добавлен новый сотрудник');
   }
 
   onDeletePerson(id: number): void {
     this.dbServices.deletePerson(id)
-      .subscribe(response => this.personsArr = this.personsArr.filter(person => person.id !== id));
+      .subscribe(response => { this.personsArr = this.personsArr.filter(person => person.id !== id); },
+        error => { this.onNotify(this.dbServices.errorHandler(error)); }
+        );
     this.closeWindows();
     this.onNotify('Сотрудник удалён');
   }
 
-  onNotify(text: string): void{
+  onNotify(text: string, delay: number = 3000): void{
     this.text = text;
     this.isNotification = true;
-    setTimeout(() => {this.isNotification = false}, 3000);
+    setTimeout(() => { this.isNotification = false; }, delay);
   }
 
 }
