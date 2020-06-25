@@ -7,5 +7,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Программный код офрмлен по Angular Style Guide. 
 Для работы сервера использовался json-server https://github.com/typicode/json-server.
 
-Запуск сервера npm run db (используется localhost:3001)
-Запуск приложения npm start (используется localhost:4200)
+Запуск сервера npm run db (используется localhost:3001).
+Запуск приложения npm start (используется localhost:4200).
