@@ -9,6 +9,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   <li>Для работы сервера использовался [json-server](https://github.com/typicode/json-server).</li>
  <ul>
 <hr>
-   
-Запуск сервера npm run db (используется localhost:3001).
-Запуск приложения npm start (используется localhost:4200).
+<h1>Старт</h1>
+<ul>
+  <li>Запуск сервера npm run db (используется localhost:3001).</li>
+  <li>Запуск приложения npm start (используется localhost:4200).</li>
+</ul>
+
