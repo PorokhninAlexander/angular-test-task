@@ -1,0 +1,30 @@
+<div class="container">
+  <button class="new-btn" (click)="onShowAddPerson()">Добавить сотрудника</button>
+  <table class="person-container">
+    <tr class="person-head">
+      <td class="person-img-head">Фото</td>
+      <td class="person-firstName-head">Имя</td>
+      <td class="person-lastName-head" >Фамилия</td>
+      <td class="btn"></td>
+    </tr>
+
+    <tr class="person-card"
+         *ngFor="let person of personsArr"
+    >
+      <td><img src="{{photo}}" alt="Фото" class="person-img">  </td>
+      <td class="person-firstName" >{{person.firstName}}</td>
+      <td class="person-lastName">{{person.lastName}}</td>
+      <td class="btn">
+        <button class="edit-person" (click)="onShowEditPerson(person)"></button>
+        <button class="remove-person" (click)="onShowDeletePerson(person)"></button>
+      </td>
+
+    </tr>
+
+  </table>
+  <div class="empty-wall" *ngIf="!(personsArr.length)">Список сотрудников пуст..</div>
+
+  <ng-template appRef></ng-template>
+  <app-notification *ngIf="isNotification" [notificationText]="text"></app-notification>
+
+</div>

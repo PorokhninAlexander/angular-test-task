@@ -1,0 +1,26 @@
+<div class="background">
+  <form class="window" [formGroup]="form">
+    <div class="head">{{title}}</div>
+    <button type="button" class="back-btn" (click)="onClose()">назад к списку</button>
+    <div class="window-container">
+      <input type="text" placeholder="Введите имя" formControlName="firstName" [readOnly]="isDisable">
+        <div class="validator">
+          <small
+            *ngIf="form.get('firstName').invalid && form.get('firstName').touched">
+            Поле "Имя" не может быть пустым
+          </small>
+        </div>
+      <input type="text" placeholder="Введите фамилию"  formControlName="lastName" [readOnly]="isDisable">
+      <div class="validator">
+        <small
+          *ngIf="form.get('lastName').invalid && form.get('lastName').touched">
+          Поле "Фамилия" не может быть пустым
+        </small>
+      </div>
+    </div>
+    <div class="add">
+      <button type="submit" [disabled]="form.invalid" class="add-btn" (click)="continue()">{{buttonText}}</button>
+    </div>
+  </form>
+</div>
+

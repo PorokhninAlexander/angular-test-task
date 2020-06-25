@@ -1,45 +1,6 @@
 <div>
-  <button (click)="onShowAddPerson()">Добавить сотрудника</button>
-  <div class="person-container">
-    <div class="person-head">
-      <div class="person-img">Фото</div>
-      <div class="person-firstName">Имя</div>
-      <div class="person-lastName" >Фамилия</div>
-    </div>
 
-    <app-person *ngFor="let person of personsArr"
-                [person]="person"
-                (editPerson)="onShowEditPerson($event)"
-                (deletePerson)="onShowDeletePerson($event)"
-    ></app-person>
+  <app-persons></app-persons>
 
-    <div class="empty-wall" *ngIf="!(personsArr.length)">List is empty...</div>
-
-    <app-window-add
-      *ngIf="isAddWindow"
-      (isClose)="closeWindows()"
-      (newPerson)="onAddPerson($event)"
-      (notificationText)="onNotify($event)"
-    >
-    </app-window-add>
-    <app-window-edit
-      (isClose)="closeWindows()"
-      *ngIf="isEditWindow"
-      [person]='editPerson'
-      (editPerson)="onEditPerson($event)"
-      (notificationText)="onNotify($event)"
-    >
-    </app-window-edit>
-    <app-window-delete
-      (isClose)="closeWindows()"
-      *ngIf="isDeleteWindow"
-      [person]="deletePerson"
-      (deletedPersonId)="onDeletePerson($event)"
-    >
-    </app-window-delete>
-    <app-notification
-      [notificationText]="text"
-      *ngIf="isNotification"
-    ></app-notification>
-  </div>
 </div>
+

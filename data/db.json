@@ -1,9 +1,10 @@
 {
-  "Persons": [ {
-    "firstName": "Brook",
-    "lastName": "Stone",
-    "id": 1
-  },
+  "Persons": [
+    {
+      "firstName": "Brook",
+      "lastName": "Stone",
+      "id": 1
+    },
     {
       "id": 2,
       "firstName": "Johnston",
@@ -48,5 +49,6 @@
       "firstName": "New",
       "lastName": "Person",
       "id": 10
-    }]
+    }
+  ]
 }

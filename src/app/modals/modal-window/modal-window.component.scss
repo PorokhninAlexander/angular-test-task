@@ -48,7 +48,6 @@
   &>*{
     height: 30px;
     width: 90%;
-    margin: .5rem 0;
   }
 }
 
@@ -56,7 +55,6 @@
   border: 1px solid lightgrey;
   outline: none;
   height: 30px;
-  width: 70px;
   margin-left: 80%;
   cursor: pointer;
 }
@@ -72,4 +70,19 @@
   align-items: center;
   font-size: 18px;
   border-bottom: 1px solid black;
+}
+
+input{
+  margin: 0;
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  &.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
+}
+
+.window-container .validator {
+  height: 15px;
 }
