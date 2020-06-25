@@ -32,7 +32,8 @@ export class DbServiceService {
     return this.http.post<Person>(this.url, person);
   }
 
-  deletePerson(id: number): Observable<Person> {return this.http.delete<Person>(this.url + '/' + id );
+  deletePerson(id: number): Observable<Person> {
+    return this.http.delete<Person>(this.url + '/' + id );
   }
 
   errorHandler(error: HttpErrorResponse): string{

@@ -25,13 +25,6 @@ export class ModalWindowComponent implements OnInit {
 
   constructor() { }
 
-  onDisable(){
-    this.isDisable = true;
-  }
-
-  onEnable(){
-    this.isDisable = false;
-  }
   ngOnInit(): void {
     this.form = new FormGroup({
       firstName: new FormControl(this.person.firstName.trim(), Validators.required),
@@ -39,12 +32,19 @@ export class ModalWindowComponent implements OnInit {
     });
   }
 
+  onDisable(){
+    this.isDisable = true;
+  }
+
+  onEnable(){
+    this.isDisable = false;
+  }
+
   onClose(): void {
     this.isClose.emit(false);
   }
 
   onAddPerson(): void {
-
     this.outPerson.emit({
       firstName: this.form.value.firstName.trim(),
       lastName: this.form.value.lastName.trim()
